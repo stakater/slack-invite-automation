@@ -44,6 +44,8 @@ If you want to use a `.env` file, create a file in the root called `.env` with t
 - `RECAPTCHA_SECRET`: An optional security measure - used to enable reCAPTCHA.
 - `LOCALE`: Application language (currently `cs`, `de`, `en`, `es`, `fr`, `it`, `ja`, `ko`, `nl`, `pl`, `pt`, `pt-BR`, `tr`, `zh-CN` and `zh-TW` available).
 - `SUBPATH`: Sub-path in URL. For example, if `/example` is set, it's served in `/example`, not `/`. Default is `/`.
+- `ULTRA_RESTRICTED`: (Optional) If true user is considered as a single channel guest user (For paid teams only).
+- `CHANNELS`: (Optional) A comma seperated list of channels that user should be added to by default
 
 **Sample**
 
@@ -53,6 +55,8 @@ SLACK_URL=socketio.slack.com
 SLACK_TOKEN=ffsdf-5411524512154-16875416847864648976-45641654654654654-444334f43b34566f
 INVITE_TOKEN=abcdefg
 LOCALE=en
+ULTRA_RESTRICTED=True
+CHANNELS=CHANNEL_1_ID,CHANNEL_2_ID
 ```
 
 You can test your token via curl:
