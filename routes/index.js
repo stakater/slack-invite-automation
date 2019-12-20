@@ -17,13 +17,19 @@ router.get('/', function(req, res) {
 router.post('/invite', function(req, res) {
   if (req.body.email && (!config.inviteToken || (!!config.inviteToken && req.body.token === config.inviteToken))) {
     function doInvite() {
+      const formParams = {
+        email: req.body.email,
+        token: config.slacktoken,
+        set_active: true
+      };
+      if (config.ultraRestricted && config.channels) {
+        formParams.ultra_restricted = config.ultraRestricted;
+        formParams.channels = config.channels;
+      }
+
       request.post({
           url: 'https://'+ config.slackUrl + '/api/users.admin.invite',
-          form: {
-            email: req.body.email,
-            token: config.slacktoken,
-            set_active: true
-          }
+          form: formParams
         }, function(err, httpResponse, body) {
           // body looks like:
           //   {"ok":true}

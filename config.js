@@ -16,6 +16,8 @@ module.exports = {
   // an optional security measure - if both are set, then recaptcha will be used.
   recaptchaSiteKey: process.env.RECAPTCHA_SITE || null,
   recaptchaSecretKey: process.env.RECAPTCHA_SECRET || null,
+  ultraRestricted: process.env.ULTRA_RESTRICTED || null,
+  channels: process.env.CHANNELS || null,
   // default locale
   locale: process.env.LOCALE || "en",
   subpath: process.env.SUBPATH || "/"
